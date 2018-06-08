@@ -28,9 +28,17 @@ void initialize() {
   setTeamName("5840D");
 
   int IMECount = imeInitializeAll();
-  if (IMECount != NUMBER_OF_IME) {
-    //Reeeeeeeeeeeee
-  }
+  if (IMECount != NUMBER_OF_IME) { /*Do nothing because laziness. Should turn on an error LED or something later.*/ }
+
   lcdInit(uart1);
   lcdClear(uart1);
+
+  /*
+   * Motors should get initialized here.
+   * Keep in mind, the main PTCs are from ports 1-5 and 6-10. Since in reality it's rather unlikely
+   * that all motors will be going at exactly the same time, it might be better to split up motor
+   * grouping, having different motors for the same task appear on each of the two main PTCs.
+   * This way, if one is flipped, you would still have a system (ex: a drive train) running, just
+   * at half the power. This doesn't affect the individual PTCs on each of the 393 motors.
+   */
 }
