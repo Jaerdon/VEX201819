@@ -1,9 +1,15 @@
 #include "main.h"
-#include "poscontrol.c"
+#include "posctrl.c"
+#include "motorctrl.c"
 
 void operatorControl() {
-	taskCreate(trackPos, TASK_DEFAULT_STACK_SIZE, NULL, TASK_PRIORITY_DEFAULT);
 	while (1) {
-		delay(20);
+		float left = 1.27f*pow(joystickGetAnalog(1, 2), 0.9f);
+		float right = 1.27f*pow(joystickGetAnalog(1, 3), 0.9f);
+
+		setMotor(MOT_BR, right);
+		setMotor(MOT_BL, left);
+		setMotor(MOT_FR, right);
+		setMotor(MOT_FL, left);
 	}
 }

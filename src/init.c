@@ -41,4 +41,8 @@ void initialize() {
    * This way, if one is flipped, you would still have a system (ex: a drive train) running, just
    * at half the power. This doesn't affect the individual PTCs on each of the 393 motors.
    */
+  
+
+
+  taskCreate(updateMotors, TASK_DEFAULT_STACK_SIZE, NULL, TASK_PRIORITY_DEFAULT);
 }

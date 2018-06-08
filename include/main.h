@@ -3,6 +3,7 @@
 #define MAIN_H_
 
 #include <API.h>
+#include "math.h"
 
 #ifdef __cplusplus
 extern "C" {
