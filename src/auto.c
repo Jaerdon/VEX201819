@@ -1,5 +1,5 @@
 #include "main.h"
-#include "posctrl.c"
+#include "posctrl.h"
 
 void autonomous() {
   //Use VEX cortex pin jacks to binary set starting position

@@ -1,4 +1,6 @@
 #include "main.h"
+#include "motorctrl.h"
+#include "posctrl.h"
 
 /*
  * Runs pre-initialization code. This function will be started in kernel mode one time while the
@@ -41,8 +43,8 @@ void initialize() {
    * This way, if one is flipped, you would still have a system (ex: a drive train) running, just
    * at half the power. This doesn't affect the individual PTCs on each of the 393 motors.
    */
-  
-
-
-  taskCreate(updateMotors, TASK_DEFAULT_STACK_SIZE, NULL, TASK_PRIORITY_DEFAULT);
+  motors[0] = createMotor(MOT_BR, IME_BR, true);
+  motors[1] = createMotor(MOT_BL, IME_BL, true);
+  motors[2] = createMotor(MOT_FR, IME_FR, false);
+  motors[3] = createMotor(MOT_FL, IME_FL, false);
 }
